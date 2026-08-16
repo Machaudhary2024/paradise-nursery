@@ -6,8 +6,7 @@ import PlantIllustration from './PlantIllustration.jsx';
 import {
   selectCartItems,
   selectTotalCost,
-  incrementQuantity,
-  decrementQuantity,
+  updateQuantity,
   removeItem,
 } from '../redux/CartSlice.jsx';
 
@@ -34,7 +33,9 @@ function Row({ item }) {
         <button
           type="button"
           aria-label={`Decrease quantity of ${item.name}`}
-          onClick={() => dispatch(decrementQuantity(item.id))}
+          onClick={() =>
+            dispatch(updateQuantity({ id: item.id, quantity: item.quantity - 1 }))
+          }
         >
           &minus;
         </button>
@@ -42,7 +43,9 @@ function Row({ item }) {
         <button
           type="button"
           aria-label={`Increase quantity of ${item.name}`}
-          onClick={() => dispatch(incrementQuantity(item.id))}
+          onClick={() =>
+            dispatch(updateQuantity({ id: item.id, quantity: item.quantity + 1 }))
+          }
         >
           +
         </button>
