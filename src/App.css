@@ -24,11 +24,28 @@ body {
   line-height: 1.55;
 }
 
-.page,
-.landing {
+.page {
   max-width: var(--content-width);
   margin: 0 auto;
   padding: 0 clamp(20px, 4vw, 56px) 96px;
+}
+
+.landing {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding-bottom: 96px;
+  background-image:
+    radial-gradient(ellipse 60% 50% at 85% 8%, rgba(212, 162, 76, 0.16), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 8% 92%, rgba(143, 169, 138, 0.14), transparent 60%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cpath d='M60 100c0-24 16-32 16-52a16 16 0 0 0-32 0c0 20 16 28 16 52Z' fill='%23f1ead9' fill-opacity='0.035'/%3E%3C/svg%3E");
+  background-repeat: no-repeat, no-repeat, repeat;
+  background-size: auto, auto, 120px 120px;
+  background-position: top right, bottom left, top left;
+}
+
+.landing > * {
+  padding-left: clamp(20px, 4vw, 56px);
+  padding-right: clamp(20px, 4vw, 56px);
 }
 
 .eyebrow {
