@@ -7,7 +7,7 @@ composition, and centralized state management.
 
 ## Project name
 
-**Paradise Nursery** — "a plant for every windowsill."
+**Paradise Nursery** —  "a plant for every windowsill."
 
 ## What it does
 
