@@ -21,26 +21,22 @@ export const CartSlice = createSlice({
       const id = action.payload;
       state.items = state.items.filter((item) => item.id !== id);
     },
-    incrementQuantity: (state, action) => {
-      const id = action.payload;
-      const item = state.items.find((item) => item.id === id);
-      if (item) item.quantity += 1;
-    },
-    decrementQuantity: (state, action) => {
-      const id = action.payload;
+    // payload: { id, quantity } — sets the item's quantity directly.
+    // If the resulting quantity is 0 or less, the item is removed.
+    updateQuantity: (state, action) => {
+      const { id, quantity } = action.payload;
       const item = state.items.find((item) => item.id === id);
       if (!item) return;
-      if (item.quantity > 1) {
-        item.quantity -= 1;
-      } else {
+      if (quantity <= 0) {
         state.items = state.items.filter((item) => item.id !== id);
+      } else {
+        item.quantity = quantity;
       }
     },
   },
 });
 
-export const { addItem, removeItem, incrementQuantity, decrementQuantity } =
-  CartSlice.actions;
+export const { addItem, removeItem, updateQuantity } = CartSlice.actions;
 
 // Selectors
 export const selectCartItems = (state) => state.cart.items;
